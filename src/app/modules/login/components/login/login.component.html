@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="#" class="sign-in-form" (ngSubmit)="checkUser()">
+          <h2 class="title">Sign in</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" [(ngModel)]="username" name="Username" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+            <span class="toggle-password" (click)="togglePasswordVisibility()">
+            </span>
+          </div>
+          <input type="submit" value="Login" class="btn solid" />
+        </form>
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New to our community ?</h3>
+          <p>Discover a world of possibilities! Join us and explore a vibrant community where ideas flourish and
+            connections thrive.</p>
+          <button class="btn transparent" id="sign-up-btn">
+            <a routerLink="/connection/register" style="text-decoration: none;">Sign Up</a>
+          </button>
+        </div>
+        <img src="https://i.pinimg.com/736x/81/70/7e/81707e6bc471be6477db3b5bc0f22a6f.jpg" class="image" alt="" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>One of Our Valued Members</h3>
+          <p>Thank you for being part of our community. Your presence enriches our shared experiences. Let's continue this
+            journey together!</p>
+          <button class="btn transparent" id="sign-in-btn">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </div>

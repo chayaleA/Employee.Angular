@@ -1,0 +1,76 @@
+<nav class="nav navbar-light bg-light fixed-top">
+    <div style="border-radius: 50%; overflow: hidden; width: 3%; max-width: 100vw; margin-left: 2%;">
+        <img src="https://img.freepik.com/premium-photo/3d-rendering-green-chrome-arrows-pointing-opposite-directions_190619-2972.jpg?w=740" style="width: 100%;" alt="" loading="lazy">
+    </div>
+    <span>Business.Employees/></span>
+    <a routerLink="/home" routerLinkActive="active"><b>Home Page</b></a>
+    <a routerLink="/employeesList" routerLinkActive="active"><b>EmployeesList</b></a>
+    <a routerLink="/addEmployee" routerLinkActive="active"><b>Add Employee</b></a>
+    <a routerLink="/connection/login" routerLinkActive="active"><b>Connect</b></a>
+    <a (click)="logout()" routerLink="/logout" routerLinkActive="active" *ngIf="connect()"><b>Logout</b></a>
+    <span class="spacer"></span>
+    <p *ngIf="connect()" style="color: blue;">Hello to: {{name}}</p>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<router-outlet></router-outlet>
+
+<footer id="eight">
+    <div class="footer__container">
+        <div class="dog__care ">
+            <div style="display: flex; align-items: center;">
+                <div style="border-radius: 50%; overflow: hidden; width: 10%; max-width: 100vw; margin-left: 2%;">
+                    <img src="https://img.freepik.com/premium-photo/3d-rendering-green-chrome-arrows-pointing-opposite-directions_190619-2972.jpg?w=740" style="width: 100%;" alt="" loading="lazy">
+                </div>
+                <span style="margin-left: 10px;">Business/></span>
+            </div>
+            <p>Duis imperdiet sapien tortor, vitae congue diam auctor vitae. Aliquam eget turpis ornare, euismod
+                ligul
+                aeget, enenatis dui.</p>
+        </div>
+        <div class="dog__categories">
+            <p>CATEGORIES</p>
+            <br>
+            <div class="categories">
+                <ul>
+                    <li> <a routerLink="/home" routerLinkActive="active"><b>> Home Page</b></a></li>
+                    <li> <a routerLink="/employeesList"><b>> employeesList</b></a></li>
+                    <li> <a routerLink="/addEmployee"><b>> addEmployee</b></a></li>
+                    <li> <a routerLink="/connection/login"><b>> Connect</b></a></li>
+                    <li> <a (click)="logout()" routerLink="/logout" routerLinkActive="active" *ngIf="connect()">>
+                            Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="newsletter">
+            <h6>NEWSLETTER</h6>
+            <br>
+            <p style="font-size: smaller;">SUBSCRIBE HERE NOW</p>
+            <br>
+            <span>
+                <input type="text" placeholder="Email Address" #emailInput><button class="btn"
+                    (click)="sendEmail(emailInput.value)">send</button>
+            </span>
+            <p>Subscribe to our mailing list and get updates to your email inbox.</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&#169; 2024 Employees/>. All Rights Reserved | WordPress Theme by <strong>ChayaA.</strong> </p>
+    </div>
+</footer>
+
+<!-- <script src="jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+
+<script>
+    let x = document.querySelector(" .night")
+    x.addEventListener('click', () => {
+        let y = document.querySelectorAll('.goblack')
+        for (let i = 0; i < y.length; i += 1) {
+            y.item(i).classList.toggle("dark-mode");
+        }
+    })
+</script> -->

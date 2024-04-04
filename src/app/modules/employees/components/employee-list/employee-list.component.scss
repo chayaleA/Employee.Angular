@@ -1,0 +1,118 @@
+.wrap {
+    width: 30%;
+    margin-left: 50%;
+    margin-top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 3px solid  #85a0f6;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    font-size: 20px;
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid  #85a0f6;
+    background:  #85a0f6;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+.searchTerm:focus {
+    color: #85a0f6;
+}
+
+.heading {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.75rem;
+}
+
+.image{
+    margin-left: 35%;
+    margin-bottom: 0;
+    width: 30%;
+}
+
+.exportExcel{
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .sticky-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* וודא שהכפתור מוצג מעל כל התוכן האחר */
+}
+
+/* סגנון לאייקון */
+.sticky-button i {
+    font-size: 1.5rem; /* גודל האייקון */
+}
+
+@media print {
+    body.print-mode *:not(table) {
+        display: none !important;
+    }
+}
+
+.table-cell-centered {
+    text-align: center;
+}
+
+.table{
+width: 98%;
+margin-left: 1%;
+margin-right: 1%;
+}
+
+@media screen and (max-width: 768px) {
+    .searchButton {
+        width: 2.5px;
+        height: 18px;
+    }
+    .search {
+        width: 100%;
+      
+    }
+    
+    .searchTerm {
+        width: 100%;
+        border: 1.5px solid  #85a0f6;
+        padding: 2px;
+        height: 18px;
+        border-radius: 2.5px 0 0 2.5px;
+        font-size: 10px;
+    }
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+/* Adjust the width of the sticky column if needed */
+th:first-child {
+    min-width: 150px; /* Adjust as per your requirement */
+}

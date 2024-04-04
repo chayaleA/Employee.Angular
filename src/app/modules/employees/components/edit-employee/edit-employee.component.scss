@@ -1,0 +1,24 @@
+.input {
+    margin-bottom: 20px;
+}
+
+.individual-form {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    margin-bottom: 15px;
+}
+
+.has-error .form-control {
+    border-color: red;
+}
+
+
+.has-error input[type="datetime-local"] {
+    border-color: #ff0000;
+}
+
+.has-error .text-danger {
+    color: #ff0000;
+}

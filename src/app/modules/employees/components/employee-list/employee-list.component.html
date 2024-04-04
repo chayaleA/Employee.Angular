@@ -1,0 +1,88 @@
+<div class="container" style="margin-top: 50px;">
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="Which employee are you looking for?"
+                [(ngModel)]="searchText" (input)="onSearchInputChange()">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-start">
+    <div class="col-auto"  style="margin-left: 3%;">
+        <button (click)="showEmployeeCard()" class="btn btn-primary" *ngIf="!showCards"><i
+                class="fas fa-th-large"></i></button>
+        <button (click)="showEmployeeList()" class="btn btn-primary" *ngIf="showCards"><i
+                class="fas fa-list"></i></button>
+    </div>
+    <div class="col-auto">
+        <button (click)="exportToExcel()" class="btn btn-primary"><i class="fas fa-file-excel"></i></button>
+    </div>
+    <div class="col-auto">
+        <button (click)="printTable()" class="btn btn-primary"><i class="fas fa-print"></i></button>
+    </div>
+    <div class="col-auto">
+        <button (click)="addNewEmployee()" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+    </div>
+</div>
+
+<div class="container" *ngIf="showCards">
+    <br>
+    <div class="row">
+        <ng-container *ngFor="let employee of filterEmployeesList; let i = index">
+            <div class="col-md-6" *ngIf="i % 2 === 0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-employee-card [employeeToShow]="employee"
+                            (deleteEmployeeEvent)="deleteEmployee($event)"></app-employee-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" *ngIf="i % 2 !== 0">
+                <div class="col-md-12">
+                    <app-employee-card [employeeToShow]="employee"
+                        (deleteEmployeeEvent)="deleteEmployee($event)"></app-employee-card>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<br>
+<br>
+<table #dataTable class="table table-bordered table-striped" id="example" *ngIf="!showCards" >
+    <thead>
+        <tr>
+            <th scope="col" class="table-cell-centered">First Name</th>
+            <th scope="col" class="table-cell-centered">Last Name</th>
+            <th scope="col" class="table-cell-centered">Id</th>
+            <th scope="col" class="table-cell-centered">Start Work</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of filterEmployeesList">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.idNumber}}</td>
+            <td>{{employee?.startWork | date: 'dd/MM/yyyy'}}</td>
+            <td class="table-cell-centered">
+                <button type="button" class="btn btn-transparent btn-sm" (click)="editEmployee(employee.id)">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </td>
+            <td class="table-cell-centered">
+                <button type="button" class="btn btn-transparent btn-sm" (click)="deleteEmployee(employee.id)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+
+<img src="https://img.freepik.com/premium-vector/curiosity-search-concept-illustration_86047-678.jpg?w=826"
+    *ngIf="noCourses()" class="image">

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form action="#" class="sign-in-form" (ngSubmit)="addUser()">
+                <h2 class="title">Sign Up</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" [(ngModel)]="username" name="Username" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="email" placeholder="Email" [(ngModel)]="email" name="Email" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Address" [(ngModel)]="address" name="Address" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+                    <i class="fa fa-eye"></i>
+                </div>
+                <p>Already a member?
+                    <a routerLink="/connection/login">Log In</a>
+                </p>
+                <input type="submit" value="Register" class="btn solid" />
+            </form>
+        </div>
+    </div>
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?t=st=1710106253~exp=1710109853~hmac=2cadcba25de210b0b39bebbfbd14c21f6035ef82addaae690f9953dc7165f5ab&w=740"
+                class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+        </div>
+    </div>
+</div>

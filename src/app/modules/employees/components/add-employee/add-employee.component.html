@@ -1,0 +1,162 @@
+<div class="container" style="margin-top: 5%; margin-bottom: 5%; ">
+    <div class="row justify-content-start">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+
+                    <h5 class="card-title">Employee details</h5>
+
+                    <form [formGroup]="MyformGroup">
+
+                        <div class="form-group input">
+                            <br>
+                            <label for="firstName"><i class="fas fa-user"></i> First Name: *</label>
+                            <input type="text" id="firstName" formControlName="firstName" [ngClass]="{
+                            'form-control': true, 
+                            'is-invalid': MyformGroup.get('firstName').touched && MyformGroup.get('firstName').invalid
+                        }">
+                            <ng-container
+                                *ngIf="MyformGroup.controls['firstName'].touched && MyformGroup.controls['firstName'].errors">
+                                <div class="invalid-feedback"
+                                    *ngIf="MyformGroup.controls['firstName'].errors['minlength']">
+                                    You must enter 3 characters at least
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <div class="form-group input">
+                            <label for="lastName"><i class="fas fa-user"></i> Last Name: *</label>
+                            <input type="text" class="form-control" id="lastName" formControlName="lastName" [ngClass]="{
+                            'form-control': true, 
+                            'is-invalid': MyformGroup.get('lastName').touched && MyformGroup.get('lastName').invalid
+                        }">
+                            <ng-container
+                                *ngIf="MyformGroup.controls['lastName'].touched && MyformGroup.controls['lastName'].errors">
+                                <div class="invalid-feedback"
+                                    *ngIf="MyformGroup.controls['lastName'].errors['maxlength']">
+                                    You must enter 10 characters at most
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <div class="form-group input">
+                            <label for="id"><i class="fas fa-id-card"></i> ID: *</label>
+                            <input type="text" class="form-control" id="id" formControlName="idNumber" [ngClass]="{
+                                'form-control': true, 
+                                'is-invalid': MyformGroup.get('idNumber').touched && MyformGroup.get('idNumber').invalid
+                            }">
+                        </div>
+
+                        <div class="form-group input">
+                            <label for="password"><i class="fas fa-lock"></i> Password: *</label>
+                            <div class="input-group">
+                                <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
+                                    id="password" formControlName="password" [ngClass]="{
+                                        'form-control': true, 
+                                        'is-invalid': MyformGroup.get('password').touched && MyformGroup.get('password').invalid
+                                    }">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary button-icon" type="button"
+                                        (click)="toggleShowPassword()">
+                                        <i class="far"
+                                            [ngClass]="{ 'fa-eye': !showPassword, 'fa-eye-slash': showPassword }"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group input"
+                            [ngClass]="{'has-error': MyformGroup.get('startWork').touched && MyformGroup.get('startWork').invalid}">
+                            <label for="startWork"><i class="fas fa-calendar-alt"></i> Start Work: *</label>
+                            <input type="datetime-local" class="form-control" id="startWork"
+                                formControlName="startWork">
+                            <div *ngIf="MyformGroup.get('startWork').errors && MyformGroup.get('startWork').touched"
+                                class="text-right">
+                                <span class="text-danger">Required</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group input"
+                            [ngClass]="{'has-error': MyformGroup.get('birthDate').touched && MyformGroup.get('birthDate').invalid}">
+                            <label for="birthDate"><i class="fas fa-birthday-cake"></i> Birth Date: *</label>
+                            <input type="datetime-local" class="form-control" id="birthDate"
+                                formControlName="birthDate">
+                            <div *ngIf="MyformGroup.get('birthDate').errors && MyformGroup.get('birthDate').touched"
+                                class="text-right">
+                                <span class="text-danger">Required</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group input"
+                            [ngClass]="{'has-error': MyformGroup.get('gender').touched && MyformGroup.get('gender').invalid}">
+                            <label><i class="fas fa-venus-mars"></i> Gender: *</label>
+                            <br>
+                            <input type="radio" name="gender" formControlName="gender" [value]="1" /> Male
+                            <br>
+                            <input type="radio" name="gender" formControlName="gender" [value]="2" /> Female
+                        </div>
+
+                        <p>-------------------------------------------Job
+                            list-------------------------------------------</p>
+
+                        <div *ngFor="let jobGroup of dynamicJobs; let i = index"
+                            class="form-group input individual-form" [formGroup]="jobGroup"
+                            style="margin-bottom: 15px;">
+
+                            <div style="margin-bottom: 10px;">
+                                <label><i class="fas fa-briefcase"></i> Job Name {{ i + 1 }}: *</label>
+                                <select formControlName="jobName" [ngClass]="{
+                                    'form-control': true, 
+                                    'is-invalid': invalidIndices().includes(i)
+                                }">
+                                    <option value="" disabled selected>Choose name of role</option>
+                                    <option *ngFor="let roleKey of keysOfRoles()" [ngValue]="roleKey">{{ roleKey }}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback"> You cant choose job's name twice! </div>
+                            </div>
+
+                            <div style="margin-bottom: 10px;">
+                                <label><i class="fas fa-user-tie"></i> Manager:</label>
+                                <input type="checkbox" formControlName="isManager" class="custom-control-input"
+                                    style="transform: scale(1.5); margin-left: 10px;">
+                            </div>
+                            <div style="margin-bottom: 10px;" class="form-group input" [ngClass]="{
+                                    'has-error': jobGroup.get('startJob').touched && jobGroup.get('startJob').invalid 
+                                    }">
+                                <label><i class="fas fa-calendar-alt"></i> Start Job: *</label>
+                                <input type="datetime-local" class="form-control" formControlName="startJob" #startJob>
+                                <div *ngIf="jobGroup.get('startJob').errors && jobGroup.get('startJob').touched"
+                                    class="text-right">
+                                    <span class="text-danger">Required</span>
+                                </div>
+                                <div *ngIf="invalidDate(startJob.value)" style="color: red;"> You cant choose date of
+                                    job before start working! </div>
+                            </div>
+
+
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-danger" (click)="removeJob(i)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" (click)="addJob()"><i class="fas fa-plus"></i> Add
+                            Job</button>
+                        <br>
+
+                        <button class="btn btn-danger mt-3 float-right" (click)="AddEmployee()"
+                            [disabled]="isSaveDisabled()"><i class="fas fa-save"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="margin-top: -7%;">
+            <div class="text-right">
+                <img
+                    src="https://img.freepik.com/free-vector/forms-concept-illustration_114360-4957.jpg?t=st=1712058654~exp=1712062254~hmac=c08ee7f6c802a1bedda748c982290bec44d39a06d4b131976864b5426b01c2ba&w=740">
+            </div>
+        </div>
+    </div>
+</div>

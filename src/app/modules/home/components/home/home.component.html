@@ -1,0 +1,57 @@
+<section id="one">
+    <div class="content">
+      <div class="text-content">
+        <h1 class="white">Providing Special care For <strong>Your Business!</strong></h1>
+        <h4 class="blackish">We offer special applications for special manager!</h4>
+        <div class="two-button">
+          <button class="w-btn btn">
+            <a routerLink="/employeesList">See your employees</a>
+          </button>
+          <button class="t-btn btn">
+            <a routerLink="/connection/login">Join Us</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="one-half" class="goblack">
+    <span><img src="https://i.pinimg.com/736x/32/3a/66/323a6655c54d00b88b00404f2cb6110e.jpg" alt=""></span>
+    <div class="half-content">
+      <div class="half__text">
+        <h1>About Us</h1>
+        <p>Orci urna. In et augue ornare, tempor massa in, luctus sapien. Proin a diam et dui fermentum dolor
+          molestie vel id neque. Donec sed tempus enim, a congue risus. Pellen tesqu.</p>
+      </div>
+      <div class="half__boxes">
+        <div class="box">
+          <br>
+          <h2>Our Mission</h2>
+          <p>In a diam et dui elit, orci urna vel id neque. Donec sed tempus enims.</p>
+        </div>
+        <div class="box">
+          <br>
+          <h2>Our Vision</h2>
+          <p>In a diam et dui elit, orci urna vel id neque. Donec sed tempus enims.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="six">
+    <h5>Employees</h5>
+    <h1>Our Team Is Filled With Highly Dedicated Business Improvements</h1>
+    <button class="btn w-btn">Read More</button>
+  </section>
+  
+  <script src="jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  
+  <script>
+    let x = document.querySelector(" .night")
+    x.addEventListener('click', () => {
+      let y = document.querySelectorAll('.goblack')
+      for (let i = 0; i < y.length; i += 1) {
+        y.item(i).classList.toggle("dark-mode");
+      }
+    })
+  </script>
