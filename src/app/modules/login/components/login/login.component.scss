@@ -1,29 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-.show-password {
- color: blue;
-}
-.example-container {
-  display: flex;
-  align-items: center;
-}
-
-.example-container mat-form-field {
-  flex: 1;
-}
-
-.example-container mat-form-field+mat-form-field {
-  margin-left: 8px;
-}
-
-.ng-invalid:not(form) {
-  border-left: 5px solid red;
-}
-
-.ng-valid:not(form) {
-  border-left: 5px solid green;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -49,7 +24,7 @@ input {
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  left: 5%;
 }
 
 .signin-signup {
@@ -127,36 +102,6 @@ form.sign-in-form {
   font-weight: 500;
 }
 
-.social-text {
-  padding: 0.7rem 0;
-  font-size: 1rem;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icon {
-  height: 46px;
-  width: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0.45rem;
-  color: #333;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.social-icon:hover {
-  color: #9603f8;
-  border-color: #a603f8;
-}
-
 .btn {
   width: 150px;
   background-color: blue;
@@ -203,7 +148,8 @@ form.sign-in-form {
 }
 
 .image {
-  width: 100%;
+  width: 110%;
+  margin-right: -10%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 
@@ -232,7 +178,7 @@ form.sign-in-form {
   height: 2000px;
   width: 2000px;
   top: -10%;
-  right: 48%;
+  right: 42%;
   transform: translateY(-50%);
   background-image: linear-gradient(75deg, rgb(6 6 6 / 64%) 8%, transparent);
   // url("https://i.pinimg.com/736x/81/70/7e/81707e6bc471be6477db3b5bc0f22a6f.jpg");
@@ -241,23 +187,6 @@ form.sign-in-form {
   border-radius: 50%;
   z-index: 6;
 
-}
-
-.panel .content {
-  color: black;
-  transition: transform 0.9s ease-in-out;
-  transition-delay: 0.6s;
-}
-
-.panel h3 {
-  font-weight: 600;
-  line-height: 1;
-  font-size: 1.5rem;
-}
-
-.panel p {
-  font-size: 0.95rem;
-  padding: 0.7rem 0;
 }
 
 .btn.transparent {
@@ -359,21 +288,6 @@ form.sign-in-form {
     transition-delay: 0.6s;
   }
 
-  .panel .content {
-    padding-right: 15%;
-    transition: transform 0.9s ease-in-out;
-    transition-delay: 0.8s;
-  }
-
-  .panel h3 {
-    font-size: 1.2rem;
-  }
-
-  .panel p {
-    font-size: 0.7rem;
-    padding: 0.5rem 0;
-  }
-
   .btn.transparent {
     width: 110px;
     height: 35px;
@@ -427,10 +341,6 @@ form.sign-in-form {
     display: none;
   }
 
-  .panel .content {
-    padding: 0.5rem 1rem;
-  }
-
   .container {
     padding: 1.5rem;
   }
@@ -444,120 +354,4 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
-}
-
-.footer__container {
-  border-bottom: 0.15px solid #707070;
-}
-
-.copyright>p {
-  margin: 20px 0px;
-  text-align: center;
-  font-size: 14px;
-  line-height: 27px;
-}
-
-.copyright p>strong {
-  color: blue;
-}
-
-.copyright p>strong:hover {
-  color: #fff;
-  border-bottom: 0.25px solid #fff;
-  transition: 1.75s;
-}
-
-.share {
-  justify-content: center;
-  display: flex;
-}
-
-.share div {
-  border-radius: 25px;
-  background: #222222;
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.share div:hover {
-  background: #fafafa;
-  color: #f85a40;
-  transition: 0.75s;
-  cursor: pointer;
-}
-
-.dark-mode {
-  /* filter: invert(1) hue-rotate(180deg); */
-  background: #222222;
-  color: white;
-}
-
-/* gallery gallery gallery gallery */
-
-.first__row span>img {
-  width: 100%;
-  height: auto;
-  max-width: 275px;
-  position: relative;
-  cursor: pointer;
-}
-
-.first__row span,
-.second__row span {
-  position: relative;
-}
-
-.first__row span::after,
-.second__row span::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0%;
-  width: 30%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent);
-  transition: 0.5s;
-}
-
-.first__row span:hover::after,
-.second__row span:hover::after {
-  content: "";
-  position: absolute;
-  left: 100%;
-  display: inline;
-}
-
-.gallery__container {
-  max-width: 1170px;
-  font-size: 0;
-  margin: 0 auto;
-  padding: 40px 3% 0px 3%;
-}
-
-.first__column {
-  width: 25%;
-  font-size: 0;
-}
-
-.first__column span>img {
-  width: 100%;
-  height: auto;
-  max-width: 275px;
-}
-
-.big__image {
-  width: 50%;
-}
-
-.second__row span>img {
-  width: 100%;
-  height: auto;
-  max-width: 540px;
 }

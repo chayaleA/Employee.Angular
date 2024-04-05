@@ -10,11 +10,9 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
   hide = true;
   passwordVisible = false;
-  togglePasswordVisibility() {
-    this.passwordVisible = !this.passwordVisible;
-  }
 
   username: string;
   password: string;
@@ -23,10 +21,15 @@ export class LoginComponent {
 
   }
   showPassword: boolean = false;
+  
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
 
   toggleShowPassword() {
       this.showPassword = !this.showPassword;
   }
+
   checkUser(): void {
     if (!this.username || !this.password) {
       Swal.fire({
