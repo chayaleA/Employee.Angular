@@ -5,6 +5,7 @@ import { Job } from "../models/job.model";
 
 @Injectable()
 export class JobService{
+    
     constructor(private _http: HttpClient) {
 
     }

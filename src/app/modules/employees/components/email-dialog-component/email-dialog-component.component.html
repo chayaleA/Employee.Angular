@@ -1,0 +1,18 @@
+<mat-dialog-content style="width: 500px;">
+    <h1 mat-dialog-title style="text-align: center;">Let's send email to all the workers!</h1>
+    <div mat-dialog-content>
+        <textarea matInput [(ngModel)]="emailSubject" placeholder="Enter subject" style="width: 100%;"></textarea>
+    </div>
+    <div mat-dialog-content>
+        <textarea matInput [(ngModel)]="emailContent" placeholder="Enter content" style="width: 100%;"></textarea>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: space-between; align-items: center; display: flex;">
+    <button mat-button (click)="dialogRef.close()" style="margin-top: -10px; margin-right: 20px;">
+        cancle
+    </button>
+    <div>
+        <button mat-button (click)="sendEmail()" style="width: auto;">Send</button>
+    </div>
+</mat-dialog-actions>
+

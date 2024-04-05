@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./employee-card.component.scss']
 })
 export class EmployeeCardComponent {
+  
   @Input()
   employeeToShow: Employee;
 

@@ -34,6 +34,7 @@
     cursor: pointer;
     font-size: 20px;
 }
+
 .searchTerm:focus {
     color: #85a0f6;
 }
@@ -61,12 +62,11 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999; /* וודא שהכפתור מוצג מעל כל התוכן האחר */
+    z-index: 9999;
 }
 
-/* סגנון לאייקון */
 .sticky-button i {
-    font-size: 1.5rem; /* גודל האייקון */
+    font-size: 1.5rem;
 }
 
 @media print {
@@ -112,7 +112,6 @@ th {
     z-index: 1;
 }
 
-/* Adjust the width of the sticky column if needed */
 th:first-child {
-    min-width: 150px; /* Adjust as per your requirement */
+    min-width: 150px;
 }

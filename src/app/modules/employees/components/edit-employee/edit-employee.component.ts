@@ -13,15 +13,21 @@ import { Role } from '../../models/job.model';
 })
 
 export class EditEmployeeComponent implements OnInit {
+
   dynamicJobs: FormGroup[] = [];
+
   private _employee: Employee;
+
   private _employeeId: number;
+
   roles = Role;
+
   MyformGroup: FormGroup = new FormGroup({
     "firstName": new FormControl("", [Validators.required, Validators.minLength(3)]),
     "lastname": new FormControl("", [Validators.required, Validators.maxLength(10)]),
     "password": new FormControl("", [Validators.required]),
     "idNumber": new FormControl("", [Validators.required]),
+    "email": new FormControl(""),
     "startWork": new FormControl("", [Validators.required]),
     "birthDate": new FormControl("", [Validators.required]),
     "gender": new FormControl("", [Validators.required]),
@@ -43,6 +49,7 @@ export class EditEmployeeComponent implements OnInit {
             "lastname": this._employee.lastName,
             "password": this._employee.password,
             "idNumber": this._employee.idNumber,
+            "email": this._employee.email,
             "startWork": this._employee.startWork,
             "birthDate": this._employee.birthDate,
             "gender": this._employee.gender
@@ -66,14 +73,17 @@ export class EditEmployeeComponent implements OnInit {
       console.log(err);
     });
   }
+
   showPassword: boolean = false;
 
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
   }
+
   keysOfRoles() {
     return Object.keys(this.roles).filter(key => !isNaN(Number(this.roles[key])));
   }
+
   invalidIndices(): number[] {
     const jobNames = this.dynamicJobs.map(job => job.get('jobName').value);
     const duplicatesIndices = jobNames.map((name, index) => jobNames.indexOf(name) === index ? -1 : index)
@@ -86,8 +96,8 @@ export class EditEmployeeComponent implements OnInit {
       return [-1];
     }
   }
-  inValidDate = false;
 
+  inValidDate = false;
   invalidDate(startJob): boolean {
     console.log(startJob)
     let s = this.MyformGroup.get("startWork").value;
@@ -99,6 +109,7 @@ export class EditEmployeeComponent implements OnInit {
     flag == true ? this.inValidDate = true : this.inValidDate = false;
     return flag
   }
+
   isSaveDisabled(): boolean {
     return !this.MyformGroup.valid || this.invalidIndices()[0] !== -1 || this.inValidDate;
   }
@@ -119,33 +130,9 @@ export class EditEmployeeComponent implements OnInit {
     this.dynamicJobs.splice(index, 1);
   }
 
-  validateDate(startWork, jobList) {
-    const formStartDate = new Date(startWork);
-    for (const job of jobList) {
-      const jobStartWork = new Date(job.startJob);
-      if (jobStartWork.getFullYear() < formStartDate.getFullYear() ||
-        (jobStartWork.getFullYear() === formStartDate.getFullYear() && jobStartWork.getMonth() < formStartDate.getMonth()) ||
-        (jobStartWork.getFullYear() === formStartDate.getFullYear() && jobStartWork.getMonth() === formStartDate.getMonth() && jobStartWork.getDate() < formStartDate.getDate())) {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Invalid date, check the start work or the start job.",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        return false;
-      }
-    }
-    return true;
-  }
-
   Save() {
     this._employee = { ...this.MyformGroup.value };
     this._employee.jobList = this.dynamicJobs.map(jobGroup => jobGroup.value);
-    if (!this.validateDate(this._employee.startWork,
-      this._employee.jobList)) {
-      return;
-    };
     this._employee.status = true;
     this._employeeService.updateEmployee(this._employee, this._employeeId).subscribe(() => {
       Swal.fire({

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 @Injectable({
   providedIn: "root"
 })
+
 export class AuthGuardService implements CanActivate {
   constructor(private _router: Router, private _http: HttpClient) { }
 

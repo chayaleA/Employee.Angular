@@ -9,7 +9,6 @@ export class Job{
         this.isManager = isManager;
         this.startJob = startJob;
     }
-    
 }
 
 export enum Role {

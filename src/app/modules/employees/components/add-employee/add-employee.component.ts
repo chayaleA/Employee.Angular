@@ -13,7 +13,9 @@ import { Role } from '../../models/job.model';
 })
 
 export class AddEmployeeComponent implements OnInit {
+
   dynamicJobs: FormGroup[] = [];
+
   roles = Role;
 
   MyformGroup: FormGroup = new FormGroup({
@@ -21,6 +23,7 @@ export class AddEmployeeComponent implements OnInit {
     "lastName": new FormControl("", [Validators.required, Validators.maxLength(10)]),
     "password": new FormControl("", [Validators.required]),
     "idNumber": new FormControl("", [Validators.required]),
+    "email": new FormControl(""),
     "startWork": new FormControl("", [Validators.required]),
     "birthDate": new FormControl("", [Validators.required]),
     "gender": new FormControl(1, [Validators.required]),
@@ -33,7 +36,6 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectedRoles: string[] = [];
   keysOfRoles() {
     return Object.keys(this.roles).filter(key => !isNaN(Number(this.roles[key])));
   }
@@ -43,6 +45,7 @@ export class AddEmployeeComponent implements OnInit {
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
   }
+  
   addJob() {
     const jobGroup = this.fb.group({
       jobName: ['', Validators.required],
