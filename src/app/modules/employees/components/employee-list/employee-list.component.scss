@@ -1,3 +1,8 @@
+.btn-primary {
+    color: blue;
+    background-color: transparent;
+}
+
 .wrap {
     width: 30%;
     margin-left: 50%;
@@ -57,17 +62,6 @@
     border: 1px solid grey;
     margin: 5px;
     cursor: pointer;
-}
-
-.sticky-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
-
-.sticky-button i {
-    font-size: 1.5rem;
 }
 
 @media print {

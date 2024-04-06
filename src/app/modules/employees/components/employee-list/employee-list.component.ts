@@ -118,12 +118,13 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
       );
     } else {
       if (this.illegalValues == false) {
+        this.getAllEmployees();
         console.log('All employees sent successfully.');
         let timerInterval;
         Swal.fire({
           title: "Saving employees to the list!",
           html: "Wait <b></b> milliseconds.",
-          timer: 4000,
+          timer: 2000,
           timerProgressBar: true,
           didOpen: () => {
             Swal.showLoading();

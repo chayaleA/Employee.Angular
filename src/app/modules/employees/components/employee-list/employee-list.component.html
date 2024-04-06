@@ -3,14 +3,15 @@
 
 <div class="row justify-content-start">
     <div class="col-auto" style="margin-left: 1%;">
-        <button class="btn btn-primary" (click)="openDialog()"><i class="fas fa-envelope"></i>
+        <button class="btn btn-primary" (click)="openDialog()" data-toggle="tooltip" 
+        data-placement="bottom" title="Send email to all workers"><i class="fas fa-envelope"></i>
             Send email to all workers
         </button>
     </div>
 
     <div class="col-auto">
         <label class="btn btn-primary">
-            <i class="fas fa-file-excel"></i> Import employees Excel
+            <i class="fas fa-file-upload"></i> Import employees Excel
             <input type="file" style="display: none;" (change)="loadEmployeesFromExcel($event)">
         </label>
     </div>

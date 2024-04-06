@@ -45,11 +45,19 @@
                                 'form-control': true, 
                                 'is-invalid': MyformGroup.get('idNumber').touched && MyformGroup.get('idNumber').invalid
                             }">
+                            <ng-container
+                                *ngIf="MyformGroup.controls['idNumber'].touched && MyformGroup.controls['idNumber'].errors">
+                                <div class="invalid-feedback"
+                                    *ngIf="MyformGroup.controls['idNumber'].errors['pattern']">
+                                    ID number must be exactly 9 digits
+                                </div>
+                            </ng-container>
                         </div>
 
                         <div class="form-group input">
                             <label for="email"><i class="fas fa-id-card"></i> Email:</label>
-                            <input type="email" class="form-control" id="email" formControlName="email" class="form-control">
+                            <input type="email" class="form-control" id="email" formControlName="email"
+                                class="form-control">
                         </div>
 
                         <div class="form-group input">

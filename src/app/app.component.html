@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
 <nav class="nav navbar-light bg-light fixed-top">
     <div style="border-radius: 50%; overflow: hidden; width: 3%; max-width: 100vw; margin-left: 2%;">
         <img src="https://img.freepik.com/premium-photo/3d-rendering-green-chrome-arrows-pointing-opposite-directions_190619-2972.jpg?w=740" style="width: 100%;" alt="" loading="lazy">
@@ -7,7 +10,8 @@
     <a routerLink="/employeesList" routerLinkActive="active"><b>EmployeesList</b></a>
     <a routerLink="/addEmployee" routerLinkActive="active"><b>Add Employee</b></a>
     <a routerLink="/connection/login" routerLinkActive="active"><b>Connect</b></a>
-    <a (click)="logout()" routerLink="/logout" routerLinkActive="active" *ngIf="connect()"><b>Logout</b></a>
+    <span class="spacer"></span>
+    <a (click)="logout()" routerLink="/logout" routerLinkActive="active" *ngIf="connect()"><b>Logout  <i class="fas fa-sign-out-alt"></i></b></a>
 </nav>
 
 <br>
@@ -50,12 +54,20 @@
             <br>
             <span>
                 <input type="text" placeholder="Email Address" #emailInput><button class="btn"
-                    (click)="sendEmail(emailInput.value)">send</button>
+                    (click)="sendEmail(emailInput.value)"><i class="far fa-paper-plane"></i></button>
             </span>
             <p>Subscribe to our mailing list and get updates to your email inbox.</p>
         </div>
     </div>
     <div class="copyright">
-        <p>&#169; 2024 Employees/>. All Rights Reserved | WordPress Theme by <strong>ChayaA.</strong> </p>
+        <p>&#169; 2024 Business/>. All Rights Reserved | WordPress Theme by <strong>ChayaA.</strong> </p>
+
+        <div class="share">
+            <div><i class="fab fa-facebook-f"></i></div>
+            <div><i class="fab fa-linkedin-in"></i></div>
+            <div><i class="fab fa-twitter"></i></div>
+            <div><i class="fab fa-google-plus-g"></i></div>
+            <div><i class="fab fa-github"></i></div>
+          </div>
     </div>
 </footer>

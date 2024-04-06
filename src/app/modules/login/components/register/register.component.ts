@@ -40,8 +40,11 @@ export class RegisterComponent {
   sendEmail(email: string) {
     const emailData = {
       recipientEmail: email,
-      subject: "Congratulation to you",
-      body: "Your useName is: Admin, Password: 123456"
+      subject: "Username && Password",
+      body: `Hello,
+      To get a username and password you must send an email from a registered user to this address!
+      Have A Good Day!
+      Business.Employees/>`
     }
     return this.http.post('/api/Gmail/sendEmail', emailData).subscribe(res => {
     }, err => {
@@ -49,11 +52,12 @@ export class RegisterComponent {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Username and password are sent to your email: " + email,
+          title: "A message is being sent to your email right now!",
           showConfirmButton: false,
           timer: 1500
         });
         this._router.navigate(["/home"])
     })
   }
+  
 }

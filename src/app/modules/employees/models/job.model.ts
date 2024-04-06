@@ -12,5 +12,5 @@ export class Job{
 }
 
 export enum Role {
-    Manager, teacher, supervisor, secretary
+    Manager, Cleaner, Clerk, Secretary
 }

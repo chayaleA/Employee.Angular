@@ -36,11 +36,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.name = sessionStorage.getItem("username");
   }
 
   connect() {
-    return sessionStorage.getItem('accessToken') == null;
+    return localStorage.getItem('accessToken') != null;
   }
 
   logout() {
@@ -63,7 +62,9 @@ export class AppComponent implements OnInit {
     const emailData = {
       recipientEmail: email,
       subject: "Congratulation to you",
-      body: "You are welcome, We will update you in all news"
+      body: `Welcome, 
+      From today we will update you with all the most important updates!
+      Business.Employees/>`
     }
     return this.http.post('/api/Gmail/sendEmail', emailData).subscribe(res => {
     }, err => {

@@ -3,7 +3,7 @@
     align-items: center;
 }
 
-span{
+span {
     margin-left: 0.5%;
     margin-right: 1.5%;
 }
@@ -134,6 +134,34 @@ a {
     transition: 1.75s;
 }
 
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+.share {
+    justify-content: center;
+    display: flex;
+  }
+  
+  .share div {
+    border-radius: 25px;
+    background: #222222;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .share div:hover {
+    background: #fafafa;
+    color: #f85a40;
+    transition: 0.75s;
+    cursor: pointer;
+  }
+  
 @media screen and (min-width: 995px) {
     #nav {
         display: flex;
@@ -202,4 +230,3 @@ a {
         justify-content: space-between;
     }
 }
-

@@ -26,7 +26,7 @@ export class EditEmployeeComponent implements OnInit {
     "firstName": new FormControl("", [Validators.required, Validators.minLength(3)]),
     "lastname": new FormControl("", [Validators.required, Validators.maxLength(10)]),
     "password": new FormControl("", [Validators.required]),
-    "idNumber": new FormControl("", [Validators.required]),
+    "idNumber": new FormControl("", [Validators.required, Validators.pattern('^[0-9]{9}$')]),
     "email": new FormControl(""),
     "startWork": new FormControl("", [Validators.required]),
     "birthDate": new FormControl("", [Validators.required]),
