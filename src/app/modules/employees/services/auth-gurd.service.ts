@@ -11,7 +11,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private _router: Router, private _http: HttpClient) { }
 
   async canActivate() {
-    if (localStorage.getItem("accessToken") == null) {
+    if (localStorage.getItem("accessToken") === null) {
       Swal.fire({
         position: "center",
         icon: "error",
@@ -49,7 +49,7 @@ export class AuthGuardService implements CanActivate {
         await this._http.get("/api/Auth", { headers: headers }).toPromise();
         return true;
       } catch (err) {
-        if (err.status == 401) {
+        if (err.status === 401) {
           Swal.fire({
             position: "center",
             icon: "error",

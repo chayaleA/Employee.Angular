@@ -79,7 +79,7 @@ export class AddEmployeeComponent implements OnInit {
     const flag: boolean = startJobDate.getFullYear() < startWorkDate.getFullYear() ||
       (startJobDate.getFullYear() === startWorkDate.getFullYear() && startJobDate.getMonth() < startWorkDate.getMonth()) ||
       (startJobDate.getFullYear() === startWorkDate.getFullYear() && startJobDate.getMonth() === startWorkDate.getMonth() && startJobDate.getDate() < startWorkDate.getDate())
-    flag == true ? this.inValidDate = true : this.inValidDate = false;
+    flag === true ? this.inValidDate = true : this.inValidDate = false;
     return flag
   }
 

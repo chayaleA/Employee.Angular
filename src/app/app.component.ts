@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
     }
     return this.http.post('/api/Gmail/sendEmail', emailData).subscribe(res => {
     }, err => {
-      if (err.status == 200)
+      if (err.status === 200)
         Swal.fire({
           position: "center",
           icon: "success",

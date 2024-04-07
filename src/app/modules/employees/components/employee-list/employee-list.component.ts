@@ -95,16 +95,16 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   illegalValues: boolean = true;
   sendEmployeesRecursively(employees: any[], index: number): void {
     if (index < employees.length) {
-      if (employees[index].firstName == null || employees[index].lastName == null ||
-        employees[index].password == null || employees[index].idNumber == null ||
-        employees[index].startWork == null || employees[index].birthDate == null ||
-        employees[index].gender == null) {
+      if (employees[index].firstName === null || employees[index].lastName === null ||
+        employees[index].password === null || employees[index].idNumber === null ||
+        employees[index].startWork === null || employees[index].birthDate === null ||
+        employees[index].gender === null) {
         this.sendEmployeesRecursively(employees, index + 1);
       }
       const employee: Employee = employees[index];
       employee.jobList = [];
       employee.status = true;
-      if (employees[index].email == null)
+      if (employees[index].email === null)
         employee.email = "";
       this.illegalValues = false
       this._employeeService.addEmployee(employee).subscribe(
@@ -117,7 +117,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
         }
       );
     } else {
-      if (this.illegalValues == false) {
+      if (this.illegalValues === false) {
         this.getAllEmployees();
         console.log('All employees sent successfully.');
         let timerInterval;
@@ -249,7 +249,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
     }
 
     );
-    if (statusReq == true) {
+    if (statusReq === true) {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -261,7 +261,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   }
 
   deleteEmployee(id: number) {
-    let i = this.employeesList.findIndex(e => e.id == id);
+    let i = this.employeesList.findIndex(e => e.id === id);
     this._employeeService.deleteEmployee(id).subscribe(() => {
       this.employeesList.splice(i, 1);
       Swal.fire({
